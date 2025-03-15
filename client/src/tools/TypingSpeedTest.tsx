@@ -1,12 +1,40 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import { 
+  Trophy, 
+  Clock, 
+  CheckCircle2, 
+  XCircle, 
+  ChevronRight, 
+  History,
+  BarChart, 
+  Award 
+} from "lucide-react";
+import { cn } from "@/lib/utils";
 
-const sampleTexts = [
-  "The quick brown fox jumps over the lazy dog. Typing is an essential skill in today's digital world. Practice makes perfect when it comes to typing speed and accuracy. Focus on accuracy first, and speed will follow naturally.",
-  "Learning to type without looking at the keyboard is a valuable skill. Professional typists can often reach speeds of 60 to 80 words per minute. The world record for typing is over 200 words per minute!",
-  "Proper finger positioning is key to typing efficiently. Your fingers should rest on the home row keys: A, S, D, F for your left hand and J, K, L, ; for your right hand. From there, your fingers can reach all other keys."
-];
+// Sample texts organized by difficulty level
+const sampleTexts = {
+  easy: [
+    "The quick brown fox jumps over the lazy dog. Typing is an essential skill in today's digital world. Practice makes perfect when it comes to typing speed and accuracy.",
+    "Learning to type without looking at the keyboard is a valuable skill. Professional typists can often reach speeds of 60 to 80 words per minute.",
+    "Proper finger positioning is key to typing efficiently. Your fingers should rest on the home row keys: A, S, D, F for your left hand and J, K, L, ; for your right hand."
+  ],
+  medium: [
+    "According to research, the average typing speed is around 40 words per minute. However, professionals who use computers regularly can achieve 65 to 75 WPM. With dedicated practice, anyone can improve their typing speed significantly.",
+    "The QWERTY keyboard layout we use today was designed in the 1870s for mechanical typewriters. It was specifically arranged to slow typists down and prevent jamming of the keys. Despite this origin, it remains the standard layout worldwide.",
+    "Touch typing is the ability to type without looking at the keyboard. This skill allows you to maintain focus on the screen, resulting in higher productivity. The home row technique is the foundation of touch typing."
+  ],
+  hard: [
+    "While QWERTY remains the standard keyboard layout globally, alternatives like Dvorak and Colemak claim to offer more efficient finger movement patterns. These layouts place the most frequently used letters on the home row, potentially reducing finger movement by up to 60%.",
+    "The world record for typing speed is an astonishing 216 words per minute, achieved by Stella Pajunas in 1946 on an IBM electric typewriter. Modern typing competitions often have participants exceeding 150 WPM with exceptional accuracy.",
+    "Ergonomic keyboard designs aim to reduce strain and prevent repetitive stress injuries. Split keyboards, vertical alignment, and mechanical switches with varying actuation forces are among the features that professionals consider when selecting a keyboard for extensive daily use."
+  ]
+};
 
 export default function TypingSpeedTest() {
   const [text, setText] = useState("");

@@ -201,7 +201,7 @@ export default function MarkdownEditor() {
             <p><code>1. Numbered Item</code></p>
             <p><code>![Alt Text](image-url)</code></p>
             <p><code>```code block```</code></p>
-            <p><code>> Blockquote</code></p>
+            <p><code>&gt; Blockquote</code></p>
           </div>
         </div>
       </div>
