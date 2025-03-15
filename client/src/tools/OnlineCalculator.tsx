@@ -4,13 +4,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
   Calculator, 
   Percent, 
-  Division, 
+  Divide, 
   X, 
   Minus, 
   Plus, 
   Equal,
   Square,
-  SquareRoot,
+  SquareDot as SquareRootIcon,
   ChevronLeft,
   Calculator as CalculatorIcon,
   Settings,
@@ -258,7 +258,7 @@ export default function OnlineCalculator() {
                   <CalculatorButton value="C" onClick={clearDisplay} variant="clear" />
                   <CalculatorButton value="±" onClick={toggleSign} variant="function" />
                   <CalculatorButton value="%" onClick={inputPercent} variant="function" icon={<Percent className="h-4 w-4" />} />
-                  <CalculatorButton value="÷" onClick={() => performOperation("÷")} variant="operator" icon={<Division className="h-4 w-4" />} />
+                  <CalculatorButton value="÷" onClick={() => performOperation("÷")} variant="operator" icon={<Divide className="h-4 w-4" />} />
                   
                   {/* Row 2 */}
                   <CalculatorButton value="7" onClick={inputDigit} />
@@ -297,7 +297,7 @@ export default function OnlineCalculator() {
                   <CalculatorButton value="C" onClick={clearDisplay} variant="clear" />
                   <CalculatorButton value="⌫" onClick={backspace} variant="function" icon={<ChevronLeft className="h-4 w-4" />} />
                   <CalculatorButton value="^" onClick={() => performOperation("^")} variant="function" />
-                  <CalculatorButton value="÷" onClick={() => performOperation("÷")} variant="operator" icon={<Division className="h-4 w-4" />} />
+                  <CalculatorButton value="÷" onClick={() => performOperation("÷")} variant="operator" icon={<Divide className="h-4 w-4" />} />
                   
                   {/* Row 3 */}
                   <CalculatorButton value="7" onClick={inputDigit} />
@@ -325,7 +325,7 @@ export default function OnlineCalculator() {
                   
                   {/* Row 7 */}
                   <CalculatorButton value="x²" onClick={calculateSquare} variant="function" icon={<Square className="h-4 w-4" />} />
-                  <CalculatorButton value="√" onClick={calculateSquareRoot} variant="function" icon={<SquareRoot className="h-4 w-4" />} />
+                  <CalculatorButton value="√" onClick={calculateSquareRoot} variant="function" icon={<SquareRootIcon className="h-4 w-4" />} />
                   <CalculatorButton value="1/x" onClick={calculateReciprocal} variant="function" />
                   <CalculatorButton value="%" onClick={inputPercent} variant="function" icon={<Percent className="h-4 w-4" />} />
                 </div>

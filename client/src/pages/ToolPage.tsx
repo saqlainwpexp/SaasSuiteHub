@@ -17,6 +17,11 @@ import ImageCompressor from "@/tools/ImageCompressor";
 import SEOTools from "@/tools/SEOTools";
 import ColorPicker from "@/tools/ColorPicker";
 import PasswordGenerator from "@/tools/PasswordGenerator";
+import FileSharing from "@/tools/FileSharing";
+import OnlineCalculator from "@/tools/OnlineCalculator";
+import WebsiteMonitor from "@/tools/WebsiteMonitor";
+import QRGenerator from "@/tools/QRGenerator";
+import InvoiceGenerator from "@/tools/InvoiceGenerator";
 
 export default function ToolPage() {
   const [match, params] = useRoute<{ id: string }>("/tool/:id");
@@ -46,6 +51,11 @@ export default function ToolPage() {
     "seo-tools": <SEOTools />,
     "color-picker": <ColorPicker />,
     "password-generator": <PasswordGenerator />,
+    "file-sharing": <FileSharing />,
+    "online-calculator": <OnlineCalculator />,
+    "website-monitor": <WebsiteMonitor />,
+    "qr-generator": <QRGenerator />,
+    "invoice-generator": <InvoiceGenerator />,
     // Add more mappings as tools are implemented
   };
 
