@@ -66,7 +66,7 @@ export default function WebsiteMonitor() {
         id: "1",
         url: "https://example.com",
         name: "Example Site",
-        status: "up",
+        status: "up" as const,
         lastChecked: new Date(),
         responseTime: 187,
         uptime: 99.98,
@@ -74,7 +74,7 @@ export default function WebsiteMonitor() {
         checkInterval: 5,
         history: Array.from({ length: 24 }, (_, i) => ({
           timestamp: new Date(Date.now() - i * 3600000),
-          status: Math.random() > 0.1 ? "up" : "down",
+          status: Math.random() > 0.1 ? "up" as const : "down" as const,
           responseTime: Math.floor(Math.random() * 300) + 100,
         })).reverse(),
       },
@@ -82,7 +82,7 @@ export default function WebsiteMonitor() {
         id: "2",
         url: "https://demo-down-site.com",
         name: "Demo Down Site",
-        status: "down",
+        status: "down" as const,
         lastChecked: new Date(),
         responseTime: 0,
         uptime: 86.72,
@@ -90,7 +90,7 @@ export default function WebsiteMonitor() {
         checkInterval: 5,
         history: Array.from({ length: 24 }, (_, i) => ({
           timestamp: new Date(Date.now() - i * 3600000),
-          status: i < 3 ? "down" : "up",
+          status: i < 3 ? "down" as const : "up" as const,
           responseTime: i < 3 ? 0 : Math.floor(Math.random() * 300) + 100,
         })).reverse(),
       },
@@ -118,7 +118,7 @@ export default function WebsiteMonitor() {
         id: Date.now().toString(),
         url: newUrl,
         name: newName.trim() || new URL(newUrl).hostname,
-        status: "up",
+        status: "up" as const,
         lastChecked: new Date(),
         responseTime: Math.floor(Math.random() * 300) + 100,
         uptime: 100,
@@ -126,7 +126,7 @@ export default function WebsiteMonitor() {
         checkInterval: parseInt(checkInterval),
         history: [{
           timestamp: new Date(),
-          status: "up",
+          status: "up" as const,
           responseTime: Math.floor(Math.random() * 300) + 100,
         }],
       };
@@ -157,13 +157,13 @@ export default function WebsiteMonitor() {
     setTimeout(() => {
       setWebsites(prev => prev.map(site => {
         const now = new Date();
-        const status = Math.random() > 0.9 ? "down" : "up";
+        const status = Math.random() > 0.9 ? "down" as const : "up" as const;
         const responseTime = status === "up" ? Math.floor(Math.random() * 300) + 100 : 0;
         
         // Add to history
         const newHistory = [...site.history, {
           timestamp: now,
-          status,
+          status: status,
           responseTime,
         }];
         
